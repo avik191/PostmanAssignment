@@ -15,8 +15,7 @@ object Driver {
     val logger = LoggerFactory.getLogger("Ingestion Logger")
 
     implicit val spark: SparkSession = SparkUtils.getSparkSession
-    // CREATE TABLE IF NOT EXISTS product (name VARCHAR(500) NOT NULL,sku VARCHAR(500) NOT NULL,description VARCHAR(500) NOT NULL,PRIMARY KEY (sku));
-    //  CREATE TABLE IF NOT EXISTS aggregated_tbl (name VARCHAR(500) NOT NULL, no_of_products INT NOT NULL);
+
     // hardcoding spark conf properties which should have been passed during runtime.
     spark.conf.set("spark.input.filePath", "src/main/resources/products.csv")
     spark.conf.set("spark.output.aggregatedTableName", "aggregated_tbl")
